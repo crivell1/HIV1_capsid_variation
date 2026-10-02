@@ -34,7 +34,7 @@ Our project will follow a similar pipeline with a couple goals in mind.
 
 Software:
 
-Python
+Python 3.12.3
 	MSA
 	SASA
 	PDB
