@@ -12,7 +12,8 @@ This project is based heavily upon the work of Paloma Troyano-Hernáez et al., 2
 link: https://pmc.ncbi.nlm.nih.gov/articles/PMC9039614/#S5
 
 Figure to recreate:
-![![Uploading HIV paper fig 1.png…]()]
+![<img width="700" height="892" alt="HIV paper fig 1" src="https://github.com/user-attachments/assets/4dc0b15e-7425-423c-9f63-f8cfaf655603" />]
+
 
 
 This paper utilizes the LANL in order to do a conservation analysis for each variant of HIV1 in the database. 
