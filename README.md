@@ -35,13 +35,15 @@ Our project will follow a similar pipeline with a couple goals in mind.
 
 Software:
 
+Bash/CLI
+	MUSCLE v5 https://drive5.com/muscle5/
+	If Nextstrain is used - intallation instructions: (https://docs.nextstrain.org/en/latest/install.html)
+
 Python v3.12.3
-	Biopython v1.88
-	Biotite v1.71
-	FreeSASA v2.2.1
-	pyMSAviz v0.5.0
-	MatPlotLib v3.9.2
-	NumPy v1.26.4
+	Biopython v1.88 https://biopython.org/docs/latest/Tutorial/chapter_msa.html#muscle
+	Biotite v1.71 https://pypi.org/project/biotite/
+	FreeSASA v2.2.1 https://pypi.org/project/freesasa/
+	pyMSAviz v0.5.0 https://pypi.org/project/pyMSAviz/
+	MatPlotLib v3.9.2 https://pypi.org/project/matplotlib/
+	NumPy v1.26.4 https://pypi.org/project/numpy/
 	
-If Nextstrain is used
-	isntallation instructions: (https://docs.nextstrain.org/en/latest/install.html)
