@@ -23,27 +23,27 @@ LANL HIV1 database link: https://www.hiv.lanl.gov/components/sequence/HIV/search
 
 Our project will follow a similar pipeline with a couple goals in mind.
 
-1a. Align the sequences of the different HIV1 variants for p24/CA \n
-1b. Calculate frequency rate of mutation for each variant (Shannon Entropy) \n
+1a. Align the sequences of the different HIV1 variants for p24/CA
+1b. Calculate frequency rate of mutation for each variant (Shannon Entropy)
 
-2a. Plot Shannon entropy by amino acid in the p24 sequence \n
+2a. Plot Shannon entropy by amino acid in the p24 sequence
 2b. Visualize variability within structural categories of p24 : NTD vs CTD vs linker, helix vs loop, exposed vs buried residues (SASA calculated from PDB file)
 
-3a. (STRETCH) compare with experimental values of directed mutations and show differences in unexpected high or low variability in strucutal categories \n
-3b. (STRETCH) compare other variables within the LANL database variants that encode for 
+3a. (STRETCH) compare with experimental values of directed mutations and show differences in unexpected high or low variability in strucutal categories
+3b. (STRETCH) compare other variables within the LANL database variants that encode for patient info (risk factors, country, etc.)
 
 
 Software:
 
-Bash/CLI \n
-	MUSCLE v5 https://drive5.com/muscle5/ \n
-	If Nextstrain is used - intallation instructions: (https://docs.nextstrain.org/en/latest/install.html) \n
+Bash/CLI
+	MUSCLE v5 https://drive5.com/muscle5/
+	If Nextstrain is used - intallation instructions: (https://docs.nextstrain.org/en/latest/install.html)
 
-Python v3.12.3 \n
-	Biopython v1.88 https://biopython.org/docs/latest/Tutorial/chapter_msa.html#muscle \n
-	Biotite v1.71 https://pypi.org/project/biotite/ \n
-	FreeSASA v2.2.1 https://pypi.org/project/freesasa/ \n
- 	pyMSAviz v0.5.0 https://pypi.org/project/pyMSAviz/ \n 
-	MatPlotLib v3.9.2 https://pypi.org/project/matplotlib/ \n
-	NumPy v1.26.4 https://pypi.org/project/numpy/ \n
+Python v3.12.3
+	Biopython v1.88 https://biopython.org/docs/latest/Tutorial/chapter_msa.html#muscle
+	Biotite v1.71 https://pypi.org/project/biotite/
+	FreeSASA v2.2.1 https://pypi.org/project/freesasa/
+ 	pyMSAviz v0.5.0 https://pypi.org/project/pyMSAviz/ 
+	MatPlotLib v3.9.2 https://pypi.org/project/matplotlib/
+	NumPy v1.26.4 https://pypi.org/project/numpy/
 
