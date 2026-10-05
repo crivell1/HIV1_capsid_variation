@@ -35,8 +35,13 @@ Our project will follow a similar pipeline with a couple goals in mind.
 
 Software:
 
-Python 3.12.3
-	MSA
-	SASA
-	PDB
-	MatPlotLib
+Python v3.12.3
+	Biopython v1.88
+	Biotite v1.71
+	FreeSASA v2.2.1
+	pyMSAviz v0.5.0
+	MatPlotLib v3.9.2
+	NumPy v1.26.4
+	
+If Nextstrain is used
+	isntallation instructions: (https://docs.nextstrain.org/en/latest/install.html)
