@@ -12,7 +12,7 @@ This project is based heavily upon the work of Paloma Troyano-Hernáez et al., 2
 link: https://pmc.ncbi.nlm.nih.gov/articles/PMC9039614/#S5
 
 Figure to recreate:
-![HIV paper fig 1](https://github.com/user-attachments/assets/4dc0b15e-7425-423c-9f63-f8cfaf655603)
+![](https://github.com/user-attachments/assets/4dc0b15e-7425-423c-9f63-f8cfaf655603)
 
 
 
