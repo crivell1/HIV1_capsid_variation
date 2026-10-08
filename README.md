@@ -1,10 +1,9 @@
 # HIV-1 CAPSID PROTEIN VARIANT INVESTIGATION
 
-The HIV-1 genome codes for 9 genes which translate into 15 different viral proteins. One of the major structural genes known as Gag encodes the core structual matrix and capsid proteins (https://pmc.ncbi.nlm.nih.gov/articles/PMC7471995/). 
-Investigation into each viral protein is paramount for full understanding of the genome and how to best target HIV-1 on an individualized basis.
-p24 in the HIV-1 GAG gene is the major capsid protein and is the target of the capsid-inhibitor lenacapavir https://pubmed.ncbi.nlm.nih.gov/40623458/. 
-Understanding the conservation of the amino acid sequence and the effects on structure between the different HIV-1 variants would allow for better targeting techniques to arise and for drugs to target conserved regions that are exposed for proper drug binding.
-p24/CA provides a nice target due to the prevalance of HIV-1 variant sequences and the depth of analysis done into the HIV1 viral genome. Databases such as the Los Alamos National Laboratory contains a large amassment of sequencing data for each HIV gene. 
+Background info: The HIV-1 genome codes for 9 genes which translate into 15 different viral proteins. One of the major structural genes known as Gag encodes the core structual matrix and capsid proteins (https://pmc.ncbi.nlm.nih.gov/articles/PMC7471995/). 
+Investigation into each viral protein is paramount for full understanding of the genome and how to best target HIV-1 on an individualized basis. p24 in the HIV-1 GAG gene is the major capsid protein and is the target of the capsid-inhibitor lenacapavir https://pubmed.ncbi.nlm.nih.gov/40623458/. Understanding the conservation of the amino acid sequence and the effects on structure between the different HIV-1 variants would allow for better targeting techniques to arise and for drugs to target conserved regions that are exposed for proper drug binding. p24/CA provides a nice target due to the prevalance of HIV-1 variant sequences and the depth of analysis done into the HIV1 viral genome. 
+
+Description: Databases such as the Los Alamos National Laboratory contains a large amassment of sequencing data for each HIV gene. 
 p24/CA itself has been highly studied and its structure regionally annotated with specific interfaces such as the N-terminus domain, C-terminus domain, linker region, and the corresponding amino acids to alpha helices and B-sheets.
 Databases such as Nextstrain.org do this conservation analysis for other viral genomes - but only include the Env protein of HIV-1. This project could establish a pipeline to analyze any HIV-1 protein with this conservation analysis, and potentially other viral genomes.
 
