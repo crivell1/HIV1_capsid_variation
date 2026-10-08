@@ -1,2 +1,8 @@
-python >= 3.9
+biopython==1.88
+biotite==1.71
+freesasa==2.2.1
+pymsaviz==0.5.0
+matplotlib==3.9.2
+numpy==1.26.4
+pandaspython >= 3.9
 
