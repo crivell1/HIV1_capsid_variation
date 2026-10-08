@@ -6,6 +6,7 @@ p24 in the HIV-1 GAG gene is the major capsid protein and is the target of the c
 Understanding the conservation of the amino acid sequence and the effects on structure between the different HIV-1 variants would allow for better targeting techniques to arise and for drugs to target conserved regions that are exposed for proper drug binding.
 p24/CA provides a nice target due to the prevalance of HIV-1 variant sequences and the depth of analysis done into the HIV1 viral genome. Databases such as the Los Alamos National Laboratory contains a large amassment of sequencing data for each HIV gene. 
 p24/CA itself has been highly studied and its structure regionally annotated with specific interfaces such as the N-terminus domain, C-terminus domain, linker region, and the corresponding amino acids to alpha helices and B-sheets.
+Databases such as Nextstrain.org do this conservation analysis for other viral genomes - but only include the Env protein of HIV-1. This project could establish a pipeline to analyze any HIV-1 protein with this conservation analysis, and potentially other viral genomes.
 
 
 This project is based heavily upon the work of Paloma Troyano-Hernáez et al., 2022
