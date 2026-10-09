@@ -10,6 +10,7 @@ Databases such as Nextstrain.org do this conservation analysis for other viral g
 
 This project is based heavily upon the work of Paloma Troyano-Hernáez et al., 2022
 link: https://pmc.ncbi.nlm.nih.gov/articles/PMC9039614/#S5
+We will use the HIV1 reference genome of Hxb2 - this is downloadable from the LANL database
 
 Figure to recreate:
 ![](https://github.com/user-attachments/assets/4dc0b15e-7425-423c-9f63-f8cfaf655603)
