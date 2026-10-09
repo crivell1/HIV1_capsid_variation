@@ -18,7 +18,7 @@ Figure to recreate:
 
 This paper utilizes the LANL in order to do a conservation analysis for each variant of HIV1 in the database. 
 LANL HIV1 database link: https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html
-
+The HIV reference genome that is used is the HXB2 reference genome for HIV1 - this is availble through the LANL databse
 
 
 
