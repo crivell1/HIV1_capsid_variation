@@ -9,6 +9,7 @@ import os
 def pull_p24_seqs(file, aa_range):
     all_seqs = {}
     for line in open(file, "r"):
+        line = str(line)
         if line.startswith(">"):
             seq_name = line.strip()[1:]
             all_seqs[seq_name] = ""
@@ -16,7 +17,7 @@ def pull_p24_seqs(file, aa_range):
             all_seqs[seq_name] += line.strip() 
     p24_seqs = {}
     for key, value in all_seqs.items():
-        p24_seqs[key] = value[aa_range].strip("-") ## since they come prealligned as a whole to Hxb2 and we are excising a small region, we need to remove the "gap" notations and rerun our alignment - we will do a MUSCLE alignment to "refresh" our alignemnts as an unsupervised MSA
+        p24_seqs[key] = value[aa_range].replace("-","") ## since they come prealligned as a whole to Hxb2 and we are excising a small region, we need to remove the "gap" notations and rerun our alignment - we will do a MUSCLE alignment to "refresh" our alignemnts as an unsupervised MSA
 
     return p24_seqs
 
