@@ -5,7 +5,7 @@ import os
 
 # I'm sure there's a FASTA reader that could make this faster - but hopefully text parsing on 120k sequences isn't too bad...
 
-#Make a dictionary with the FASTA file, then make a smaller dictionary with just the CA
+#Make a dictionary with the FASTA file, then make a smaller dictionary with just the specified sequence range
 def pull_p24_seqs(file, aa_range):
     all_seqs = {}
     for line in open(file, "r"):
@@ -17,7 +17,11 @@ def pull_p24_seqs(file, aa_range):
             all_seqs[seq_name] += line.strip() 
     p24_seqs = {}
     for key, value in all_seqs.items():
-        p24_seqs[key] = value[aa_range].replace("-","") ## since they come prealligned as a whole to Hxb2 and we are excising a small region, we need to remove the "gap" notations and rerun our alignment - we will do a MUSCLE alignment to "refresh" our alignemnts as an unsupervised MSA
+        p24_seqs[key] = value[aa_range].replace("-","") 
+        # since they come prealligned as a whole to Hxb2 and we are excising a small region, 
+        # we need to remove the "gap" notations and rerun our alignment - 
+        # we will do a MUSCLE alignment to "refresh" our alignemnts as an unsupervised MSA
+        # This will remove any assumptions from LANL's prealigned sequences and ensure our extracted region is gap-free
 
     return p24_seqs
 
