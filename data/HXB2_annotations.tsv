@@ -1,0 +1,18 @@
+annotation_type	feature	start_position	end_position	source
+major_region	NTD	1	145	Troyano-Hernáez et al. 2022; Figure supplied by user
+major_region	IDR	146	150	Troyano-Hernáez et al. 2022; Figure supplied by user
+major_region	CTD	151	231	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	beta_hairpin	1	12	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H1	17	32	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H2	36	43	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H3	48	57	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H4	63	83	Troyano-Hernáez et al. 2022; Figure supplied by user
+functional_loop	CypA_binding_loop	85	93	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H5	101	105	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H6	106	118	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H7	128	145	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H8	161	179	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H9	180	192	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H10	196	205	Troyano-Hernáez et al. 2022; Figure supplied by user
+secondary_structure	H11	211	217	Troyano-Hernáez et al. 2022; Figure supplied by user
+functional_region	MHR	153	172	Troyano-Hernáez et al. 2022; Figure supplied by user
