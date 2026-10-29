@@ -1,4 +1,11 @@
-How you’ve addressed prior feedback (2 pts)
-New progress since last submission (4 pts)
-Project Organization (2 pts)
-Struggles you are encountering and questions you would like advice on (2 pts)
+1. How we’ve addressed prior feedback
+At our initial meeting, our advisor indicated that the proposed project was feasible and that the initial goals would be easily achievable with more time spent on the stretch and longer term goals. Based on on that notion, we have continued developing that approach and expanding the scope to incorporate resources that we were not aware of. Learning about HPC in class also encouraged us to consider using it for the full analysis. We have also spent more time deliberating and planning on longer-term goals to strive towards.
+
+2. New progress since the last submission
+We downloaded the sequence data and developed a workflow to extract p24 sequences, perform multiple sequence alignment, and calculate amino-acid frequencies, using a test dataset of 100 sequences. We also created alignment visualizations and heatmaps showing variation across amino-acid positions, both separated by variant and with all sequences combined. To prepare for analyzing approximately 120,000 sequences, we created a shell script to run the workflow on HPC and prepared structural-annotation files for our next analysis of variation across structural regions for which we've created two formats of tables that contain the annotated structures of our reference p24 sequence.
+
+3. Project organization
+We have organized our data and analysis scripts into folders in GitHub. Based on the recommended data structure we have developed a source, data, results, and a pilot run directory to organize the repo as we pilot and continue our analysis. We have divided responsibilities through the project: Serena is focusing on data processing and frequency calculations, while Cole is focusing on visualization and HPC integration. Our next steps will be to continue with HPC integration and structural analysis
+
+4. Struggles and questions for advice
+We have two main upcoming challenges with our project. One is moving from a small test dataset to running the full analysis on HPC. We would appreciate advice on the best way to prepare input files, structure data provenance in HPC, and the best way to run tests as the MUSCLE software seems to be the computational bottleneck. Our next step is to check the workflow with a small HPC test run before submitting the full analysis. The other upcoming challenge is maintaining a modular code structure so that our analysis could be easily applied to other sequences downstream if we continue doing HIV genes. Is the best way to maintain this applicability making functions and "helper scripts" then make a single run script that calls all of those?
