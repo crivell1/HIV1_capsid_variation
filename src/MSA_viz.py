@@ -17,7 +17,7 @@ def msa_viz(file_path):
             align_list.append(line)
     alignment = AlignIO.read(StringIO("".join(align_list)), "fasta")
     mv = MsaViz(alignment, wrap_length=250, show_count=True)
-    mv.savefig("trial1_msaviz.png")
+    mv.savefig(str(sys.argv[2]))
 
 
 if __name__ == "__main__":

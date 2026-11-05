@@ -3,9 +3,10 @@ import csv
 from collections import Counter
 from io import StringIO
 from Bio import SeqIO
+import sys
 
-input_file = "align100_p24.efa"
-output_file = "p24_frequencies.csv"
+input_file = sys.argv[1] #"align100_p24.efa"
+output_file = sys.argv[2] #"p24_frequencies.csv"
 amino_acids = set("ACDEFGHIKLMNPQRSTVWY")
 
 # Extract the first alignment from the EFA file.

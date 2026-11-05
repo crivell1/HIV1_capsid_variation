@@ -8,5 +8,6 @@ plt.plot(df["alignment_column"], df["entropy_bits"])
 plt.xlabel("Alignment Column")
 plt.ylabel("Entropy (bits)")
 plt.title("Entropy Across Alignment Columns")
-plt.show()
+#plt.show() # uncomment this line if you want to display the plot interactively
 plt.savefig(sys.argv[2], dpi=150)
+plt.close()

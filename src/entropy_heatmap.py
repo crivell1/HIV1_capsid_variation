@@ -50,4 +50,5 @@ fig.colorbar(image, ax=ax, label="Entropy (bits)")
 
 fig.tight_layout()
 fig.savefig(sys.argv[2], dpi=150)
-plt.show()
+#plt.show() #uncomment this line if you want to display the plot interactively
+plt.close(fig)
