@@ -34,6 +34,6 @@ def write_fasta(dict, new_file_name):
 if __name__ == "__main__":
     ## code will be run like: python create_p24_fa.py old_file new_file
     whole_file = sys.argv[1]
-    p24_range = slice(132, 366) ## LANL uses HXB2 coordinates for annotations - this is pulled directly from that - any gaps get condensed and our MSA gets rerun on the new fasta made
+    p24_range = slice(136, 367) ## LANL uses HXB2 coordinates for annotations - this is pulled directly from that - any gaps get condensed and our MSA gets rerun on the new fasta made
     all_seqs = pull_p24_seqs(whole_file, p24_range)
     write_fasta(all_seqs, sys.argv[2])
