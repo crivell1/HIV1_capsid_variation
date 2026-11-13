@@ -1,39 +1,112 @@
-#! bin/env/ python3
-
 import sys
 import os
 
-# I'm sure there's a FASTA reader that could make this faster - but hopefully text parsing on 120k sequences isn't too bad...
-
-#Make a dictionary with the FASTA file, then make a smaller dictionary with just the specified sequence range
-def pull_p24_seqs(file, aa_range):
+def read_fasta(file):
+    """Read FASTA file into dictionary."""
     all_seqs = {}
+    seq_name = None
     for line in open(file, "r"):
-        line = str(line)
+        line = line.strip()
         if line.startswith(">"):
-            seq_name = line.strip()[1:]
+            seq_name = line[1:]
             all_seqs[seq_name] = ""
-        else:
-            all_seqs[seq_name] += line.strip() 
-    p24_seqs = {}
-    for key, value in all_seqs.items():
-        p24_seqs[key] = value[aa_range].replace("-","") 
-        # since they come prealligned as a whole to Hxb2 and we are excising a small region, 
-        # we need to remove the "gap" notations and rerun our alignment - 
-        # we will do a MUSCLE alignment to "refresh" our alignemnts as an unsupervised MSA
-        # This will remove any assumptions from LANL's prealigned sequences and ensure our extracted region is gap-free
+        elif seq_name is not None:
+            all_seqs[seq_name] += line
+    return all_seqs
 
+def find_p24_boundaries_from_hxb2(all_seqs, p24_start_aa=133, p24_end_aa=363):
+    """
+    Find alignment columns corresponding to p24 using HXB2 
+    amino acid numbering.
+    """
+    # Find HXB2
+    hxb2_key = None
+    for key in all_seqs:
+        if 'HXB2' in key.upper() or 'B.FR.1983' in key:
+            hxb2_key = key
+            break
+    
+    if hxb2_key is None:
+        print("ERROR: HXB2 not found!")
+        print("First 5 sequence names:")
+        for i, key in enumerate(all_seqs.keys()):
+            print(f"  {key}")
+            if i >= 4:
+                break
+        sys.exit(1)
+    
+    hxb2_seq = all_seqs[hxb2_key]
+    aa_count = 0
+    start_col = None
+    end_col = None
+    
+    for col_idx, char in enumerate(hxb2_seq):
+        if char not in ['-', '.']:
+            aa_count += 1
+            if aa_count == p24_start_aa and start_col is None:
+                start_col = col_idx
+            if aa_count == p24_end_aa:
+                end_col = col_idx + 1
+                break
+    
+    print(f"Found HXB2: {hxb2_key}")
+    print(f"Alignment columns for p24: {start_col} to {end_col}")
+    
+    # Verify by showing extracted HXB2 p24
+    extracted = hxb2_seq[start_col:end_col].replace('-', '')
+    print(f"HXB2 p24 length (no gaps): {len(extracted)}")
+    print(f"HXB2 p24 starts with: {extracted[:20]}")
+    print(f"Expected start: PIVQNLQGQMVHQAISPR...")
+    
+    return start_col, end_col
+
+def extract_p24(all_seqs, start_col, end_col, remove_gaps=True):
+    """Extract p24 region from all sequences."""
+    p24_seqs = {}
+    skipped = 0
+    
+    for key, value in all_seqs.items():
+        extracted = value[start_col:end_col]
+        
+        if remove_gaps:
+            extracted = extracted.replace('-', '').replace('.', '')
+        
+        # Skip empty or very short sequences
+        if len(extracted) < 200:  # p24 should be ~231 aa
+            skipped += 1
+            continue
+            
+        p24_seqs[key] = extracted
+    
+    print(f"\nExtracted {len(p24_seqs)} sequences")
+    print(f"Skipped {skipped} (too short after extraction)")
+    
     return p24_seqs
 
-def write_fasta(dict, new_file_name):
-    fs = open(new_file_name, "w")
-    for key, value in dict.items():
-        fs.write(f'>{key}\n{value}\n')
-    fs.close()
+def write_fasta(seq_dict, new_file_name):
+    """Write dictionary to FASTA file."""
+    with open(new_file_name, "w") as fs:
+        for key, value in seq_dict.items():
+            fs.write(f'>{key}\n{value}\n')
 
 if __name__ == "__main__":
-    ## code will be run like: python create_p24_fa.py old_file new_file
     whole_file = sys.argv[1]
-    p24_range = slice(136, 367) ## LANL uses HXB2 coordinates for annotations - this is pulled directly from that - any gaps get condensed and our MSA gets rerun on the new fasta made
-    all_seqs = pull_p24_seqs(whole_file, p24_range)
-    write_fasta(all_seqs, sys.argv[2])
+    output_file = sys.argv[2]
+    
+    # Step 1: Read all sequences
+    print("Reading FASTA file...")
+    all_seqs = read_fasta(whole_file)
+    print(f"Total sequences: {len(all_seqs)}")
+    
+    # Step 2: Find p24 boundaries using HXB2
+    print("\nFinding p24 boundaries...")
+    start_col, end_col = find_p24_boundaries_from_hxb2(all_seqs)
+    
+    # Step 3: Extract p24 from all sequences
+    print("\nExtracting p24...")
+    p24_seqs = extract_p24(all_seqs, start_col, end_col, remove_gaps=True)
+    
+    # Step 4: Write output
+    write_fasta(p24_seqs, output_file)
+    print(f"\nOutput written to: {output_file}")
+
