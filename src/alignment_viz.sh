@@ -44,11 +44,14 @@ echo "entropy start"
 
 python $SRC_DIR/count_p24_frequency.py $DATA_DIR/best_alignment.fasta $DATA_DIR/p24_frequency.csv # this will count the frequency of each p24 sequence and output the results in a CSV file
 python $SRC_DIR/entropy_calc.py $DATA_DIR/p24_frequency.csv $DATA_DIR/p24_entropy.csv # this will calculate the entropy of each p24 sequence and output the results in a CSV file
-python $SRC_DIR/entropy_viz.py $DATA_DIR/p24_entropy.csv $DATA_DIR/p24_entropy_visualization.png # this will visualize the entropy of each p24 sequence amino acid and output the results in a PNG file
+python $SRC_DIR/entropy_viz.py $DATA_DIR/p24_entropy.csv $DATA_DIR/best_alignment.fasta$DATA_DIR/p24_entropy_visualization.png # this will visualize the entropy of each p24 sequence amino acid and output the results in a PNG file
+
 echo "variant start"
+
 python $SRC_DIR/count_p24_frequency_by_variant.py $DATA_DIR/best_alignment.fasta $DATA_DIR/p24_frequency_by_variant.csv # this will count the frequency of each p24 sequence and output the results in a CSV file
 python $SRC_DIR/entropy_calc_by_variant.py $DATA_DIR/p24_frequency_by_variant.csv $DATA_DIR/p24_entropy_by_variant.csv # this will calculate the entropy of each p24 sequence and output the results in a CSV file
 python $SRC_DIR/entropy_heatmap.py $DATA_DIR/p24_entropy_by_variant.csv $DATA_DIR/p24_entropy_visualization_by_variant.png # this will visualize the entropy of each p24 sequence amino acid and output the results in a PNG file
+
 echo "done"
 # Full MSA visualization might be huge...
 
