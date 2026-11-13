@@ -36,7 +36,7 @@ plt.plot(df["aa_position"], df["entropy_bits"])
 plt.xlabel("Amino Acid Position")
 plt.ylabel("Entropy (bits)")
 plt.title("Entropy Across Amino Acid Position of HXB2 p24")
-plt.show() # uncomment this line if you want to display the plot interactively
-plt.savefig(sys.argv[3], dpi=150)
+plt.savefig(sys.argv[3], dpi=150)  # Save the plot to a file
+#plt.show() # uncomment this line if you want to display the plot interactively
 plt.close()
 
