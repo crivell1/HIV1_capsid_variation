@@ -45,4 +45,5 @@ python $SRC_DIR/entropy_calc_by_variant.py $DATA_DIR/p24_frequency_by_variant.cs
 python $SRC_DIR/entropy_heatmap.py $DATA_DIR/p24_entropy_by_variant.csv $DATA_DIR/p24_entropy_visualization_by_variant.png # this will visualize the entropy of each p24 sequence amino acid and output the results in a PNG file
 
 # Full MSA visualization might be huge...
-python $SRC_DIR/MSA_viz.py $DATA_DIR/best_alignment.fasta $DATA_DIR/msa_visualization.png # this will visualize the multiple sequence alignment and output the results in a PNG file
+
+# python $SRC_DIR/MSA_viz.py $DATA_DIR/best_alignment.fasta $DATA_DIR/msa_visualization.png # this will visualize the multiple sequence alignment and output the results in a PNG file
