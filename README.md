@@ -29,7 +29,7 @@ Our project will follow a similar pipeline with a couple goals in mind.
 1b. Calculate frequency rate of mutation for each variant (Shannon Entropy)
 
 2a. Plot Shannon entropy by amino acid in the p24 sequence
-2b. Visualize variability within structural categories of p24 : NTD vs CTD vs linker, helix vs loop, exposed vs buried residues (SASA calculated from PDB file)
+2b. Visualize variability within structural categories of p24 : NTD vs CTD vs linker, helix vs loop, exposed vs buried residues (SASA calculated from PDB file - 1E6J file for p24 strucutre)
 
 3a. (STRETCH) compare with experimental values of directed mutations and show differences in unexpected high or low variability in strucutal categories
 3b. (STRETCH) compare other variables within the LANL database variants that encode for patient info (risk factors, country, etc.)

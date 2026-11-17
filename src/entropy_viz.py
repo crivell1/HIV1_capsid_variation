@@ -32,11 +32,16 @@ mapping_df = pd.DataFrame(mapping_rows, columns=["alignment_column", "aa_positio
 df = df.merge(mapping_df, on="alignment_column", how="left")
 df = df.dropna(subset=["aa_position"])  # Drop rows where aa_position is NaN
 df.sort_values(by="aa_position", inplace=True)  # Sort by aa_position
+
+# Had to add this to save the merged DataFrame to a new CSV file so that it can be used in the merge annotations script downstream
+df["aa_position"] = df["aa_position"].astype(int)
+df.to_csv(sys.argv[3], index=False)  # Save the merged DataFrame to a new CSV file
+
 plt.plot(df["aa_position"], df["entropy_bits"])
 plt.xlabel("Amino Acid Position")
 plt.ylabel("Entropy (bits)")
 plt.title("Entropy Across Amino Acid Position of HXB2 p24")
-plt.savefig(sys.argv[3], dpi=150)  # Save the plot to a file
+plt.savefig(sys.argv[4], dpi=150)  # Save the plot to a file
 #plt.show() # uncomment this line if you want to display the plot interactively
 plt.close()
 
