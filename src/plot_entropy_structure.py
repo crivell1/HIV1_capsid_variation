@@ -101,16 +101,22 @@ def line_plot_entropy_sasa_major(merged_df, output_file):
     fig, axes = plt.subplots(
         2, 1, figsize=(14, 7), sharex=True
     )
+
+    # Creating two plots, one for entropy and one for SASA, with the same x-axis (amino acid position)
     axes[0].plot(plot_df["aa_position"], plot_df["entropy_bits"], color="black")
     axes[1].plot(plot_df["aa_position"], plot_df["rsa"], color="steelblue")
+
+    #labeling the plots and axes
     axes[0].set_ylabel("Entropy (bits)")
     axes[1].set_ylabel("Relative solvent accessibility")
     axes[1].set_xlabel("HXB2 p24 amino-acid position")
 
+    # shading of each strucutral region  
     region_colors = {"NTD": "#cfe8ff", "IDR": "#ffe6ad", "CTD": "#d9eed3"}
     region_changes = plot_df["major_region"].ne(plot_df["major_region"].shift())
     region_blocks = region_changes.cumsum()
-    
+
+    # region shading and labeling for each structural region
     for _, block in plot_df.groupby(region_blocks): # _ is a placeholder to iterate through the groupby object without needing the group name
         region = block["major_region"].iloc[0]
         start = block["aa_position"].min() - 0.5
@@ -128,14 +134,15 @@ def line_plot_entropy_sasa_major(merged_df, output_file):
         for ax in axes:
             ax.axvspan(start, end, color=region_colors.get(region, "lightgray"),
                        alpha=0.35, zorder=0)
+
+    # Save it and move on to the next plot
     fig.tight_layout()
     fig.savefig(output_file, dpi=150)
     plt.close(fig)
 
 def line_plot_entropy_sasa_minor(merged_df, output_file):
 
-    #Had to look up all of this matplotlib code to get the backgroun shading for regions. 
-
+# almost identical to the major region plot, but with minor regions instead of major regions.
     plot_df = merged_df.sort_values("aa_position").copy()
     fig, axes = plt.subplots(
         2, 1, figsize=(14, 7), sharex=True
@@ -146,7 +153,7 @@ def line_plot_entropy_sasa_minor(merged_df, output_file):
     axes[1].set_ylabel("Relative solvent accessibility")
     axes[1].set_xlabel("HXB2 p24 amino-acid position")
 
-    # Keys match the minor_region labels in HXB2_annotations_by_aa.tsv.
+    # Keys match the minor_region labels in HXB2_annotations_by_aa.tsv 
     region_colors = {
         "B-hairpin": "#8dd3c7",
         "loop": "#eeeeee",
@@ -166,6 +173,7 @@ def line_plot_entropy_sasa_minor(merged_df, output_file):
     }
     region_changes = plot_df["minor_region"].ne(plot_df["minor_region"].shift())
     region_blocks = region_changes.cumsum()
+
     for _, block in plot_df.groupby(region_blocks): # _ is a placeholder to iterate through the groupby object without needing the group name
         region = block["minor_region"].iloc[0]
         start = block["aa_position"].min() - 0.5
@@ -201,6 +209,7 @@ if __name__ == "__main__":
 
     merged_df = merge_sasa_entropy(annotated_entropy_df, sasa_df)
     # print(merged_df.head())  # Debugging line to check the structure of the merged DataFrame
+    merged_df.to_csv("data/p24_entropy_aa_with_annotations.csv")
 
     plot_entropy_sasa_scatter_major(merged_df, sys.argv[4])
     plot_entropy_sasa_scatter_minor(merged_df, sys.argv[5])
