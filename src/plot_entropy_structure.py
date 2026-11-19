@@ -71,9 +71,9 @@ def plot_entropy_sasa_scatter_major(merged_df, output_file):
     sns.scatterplot(data=merged_df, x="rsa", y="entropy_bits", hue="major_region")
     
     # Set plot labels and title
-    plt.xlabel("Solvent Accessible Surface Area (SASA)")
+    plt.xlabel("Relative Solvent Accessible Surface Area (rsa)")
     plt.ylabel("Shannon Entropy (bits)")
-    plt.title("Entropy vs SASA") # by Variant")
+    plt.title("Entropy vs rsa") # by Variant")
     
     # Save the plot to a file
     plt.savefig(output_file)
@@ -85,9 +85,9 @@ def plot_entropy_sasa_scatter_minor(merged_df, output_file):
     sns.scatterplot(data=merged_df, x="rsa", y="entropy_bits", hue="minor_region")
     
     # Set plot labels and title
-    plt.xlabel("Solvent Accessible Surface Area (SASA)")
+    plt.xlabel("Relative Solvent Accessible Surface Area (rsa)")
     plt.ylabel("Shannon Entropy (bits)")
-    plt.title("Entropy vs SASA") # by Variant")
+    plt.title("Entropy vs rsa") # by Variant")
     
     # Save the plot to a file
     plt.savefig(output_file)
